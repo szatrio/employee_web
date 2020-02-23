@@ -39,3 +39,5 @@ Route::get('/employee/delete/{id}','EmployeeController@delete');
 // Route::get('/employee/{name}', 'EmployeeController@index');
 Route::get('/form', 'EmployeeController@form');
 Route::post('/form/process', 'EmployeeController@process');
+
+Route::get('/teacher', 'TeacherController@index');

@@ -7,6 +7,14 @@
 <!-- cara penulisan isi section yang panjang -->
 @section('pageBar')
 
+<style type="text/css">
+		.pagination li{
+			float: left;
+			list-style-type: none;
+			margin:5px;
+		}
+</style>
+
 <br/>
 	Halaman : {{ $employee->currentPage() }} <br/>
 	Jumlah Data : {{ $employee->total() }} <br/>

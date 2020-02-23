@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
 
+//console.log
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
 class EmployeeController extends Controller{
     public function index(){
         // $skills = ["PHP","Java","Golang", "Python"];
@@ -25,15 +34,22 @@ class EmployeeController extends Controller{
     	return view('pagination',['employee' => $employee]);
     }
 
-    public function search(){
-        // $skills = ["PHP","Java","Golang", "Python"];
-        // return view('employeelist', ['name' => $name, 'skills' => $skills]);
-        // mengambil data dari table pegawai
-        
-        $employee = DB::table('employee')->paginate(10);
+    public function search(Request $req){
+                // menangkap data pencarian
+        // debug_to_console($req->name);
+        $this->validate($req,[
+            // 'search' => 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'search' => 'alpha',
+        ]);
+        $search = $req->search;
+            // mengambil data dari table pegawai sesuai pencarian data
+        $employee = 
+        // DB::table('employee')->get();
+        DB::table('employee')
+        ->where('name','like',"%".$search."%")->paginate();
  
     	// mengirim data pegawai ke view index
-    	return view('pagination',['employee' => $employee]);
+    	return view('index',['employee' => $employee]);
     }
 
     public function add(){
