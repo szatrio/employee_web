@@ -35,9 +35,19 @@ Route::post('/employee/store','EmployeeController@store');
 Route::get('/employee/edit/{id}','EmployeeController@edit');
 Route::post('/employee/update','EmployeeController@update');
 Route::get('/employee/delete/{id}','EmployeeController@delete');
-
 // Route::get('/employee/{name}', 'EmployeeController@index');
+
 Route::get('/form', 'EmployeeController@form');
 Route::post('/form/process', 'EmployeeController@process');
 
 Route::get('/teacher', 'TeacherController@index');
+Route::get('/teacher/add', 'TeacherController@add');
+Route::post('/teacher/store', 'TeacherController@store');
+Route::get('/teacher/edit/{id}', 'TeacherController@edit');
+Route::put('/teacher/update/{id}', 'TeacherController@update');
+Route::get('/teacher/delete/{id}','TeacherController@delete');
+Route::get('/teacher/trash', 'TeacherController@trash');
+Route::get('/teacher/restore/{id}', 'TeacherController@restore');
+Route::get('/teacher/restore_all', 'TeacherController@restore_all');
+Route::get('/teacher/permanent_delete/{id}', 'TeacherController@permanent_delete');
+Route::get('/teacher/permanent_delete_all', 'TeacherController@permanent_delete_all');
