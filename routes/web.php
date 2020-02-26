@@ -51,3 +51,9 @@ Route::get('/teacher/restore/{id}', 'TeacherController@restore');
 Route::get('/teacher/restore_all', 'TeacherController@restore_all');
 Route::get('/teacher/permanent_delete/{id}', 'TeacherController@permanent_delete');
 Route::get('/teacher/permanent_delete_all', 'TeacherController@permanent_delete_all');
+
+Route::get('/customer', 'CustomerController@index');
+
+Route::get('/article', 'WebController@index');
+
+Route::get('/doorprize', 'DoorprizeController@index');
