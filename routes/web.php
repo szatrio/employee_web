@@ -75,4 +75,13 @@ Route::get('/photo', 'PhotoController@upload');
 Route::post('/photo/process', 'PhotoController@process');
 Route::get('/photo/delete/{id}', 'PhotoController@delete');
 
+Route::get('/session/','SessionController@index');
+Route::get('/session/add','SessionController@add');
+Route::get('/session/delete','SessionController@delete');
+
+Route::get('/message','NotifController@index');
+Route::get('/message/success','NotifController@success');
+Route::get('/message/warning','NotifController@warning');
+Route::get('/message/failed','NotifController@failed');
+
 
