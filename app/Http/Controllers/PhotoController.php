@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
  
 use App\Photo;
+use File;
  
 class PhotoController extends Controller
 {
 	public function upload(){
 		$photo = Photo::get();
-		return view('upload',['photo' => $photo]);
+		return view('photo/upload',['photo' => $photo]);
 	}
  
 	public function process(Request $request){
@@ -33,5 +34,16 @@ class PhotoController extends Controller
 		]);
  
 		return redirect()->back();
-	}
+    }
+    
+    public function delete($id){
+        // hapus file
+        $photo = Photo::where('id',$id)->first();
+        File::delete('data_file/'.$photo->file);
+     
+        // hapus data
+        Photo::where('id',$id)->delete();
+     
+        return redirect()->back();
+    }
 }

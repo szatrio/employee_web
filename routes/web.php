@@ -71,4 +71,8 @@ Route::get('/hash', 'HashController@index');
 Route::get('/upload', 'FileController@upload');
 Route::post('/upload/process', 'FileController@process');
 
+Route::get('/photo', 'PhotoController@upload');
+Route::post('/photo/process', 'PhotoController@process');
+Route::get('/photo/delete/{id}', 'PhotoController@delete');
+
 
