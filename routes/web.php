@@ -57,3 +57,18 @@ Route::get('/customer', 'CustomerController@index');
 Route::get('/article', 'WebController@index');
 
 Route::get('/doorprize', 'DoorprizeController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/encrypt', 'EncryptController@encrypt');
+
+Route::get('/data/', 'EncryptController@data');
+Route::get('/data/{secret_data}', 'EncryptController@data_process');
+
+Route::get('/hash', 'HashController@index');
+
+Route::get('/upload', 'FileController@upload');
+Route::post('/upload/process', 'FileController@process');
+
+
