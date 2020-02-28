@@ -35,6 +35,7 @@ Route::post('/employee/store','EmployeeController@store');
 Route::get('/employee/edit/{id}','EmployeeController@edit');
 Route::post('/employee/update','EmployeeController@update');
 Route::get('/employee/delete/{id}','EmployeeController@delete');
+Route::get('/employee/print_pdf','EmployeeController@print_pdf');
 // Route::get('/employee/{name}', 'EmployeeController@index');
 
 Route::get('/form', 'EmployeeController@form');
@@ -84,4 +85,7 @@ Route::get('/message/success','NotifController@success');
 Route::get('/message/warning','NotifController@warning');
 Route::get('/message/failed','NotifController@failed');
 
+Route::get('/errortest/{name}','ErrorController@index');
+
+Route::get('/send','EmailController@index');
 

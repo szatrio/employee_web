@@ -8,6 +8,11 @@ use App\Teacher;
 
 class TeacherController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+    
     public function index(){
         
         $teacher = Teacher::all();

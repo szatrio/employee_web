@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use PDF;
 
 //console.log
 function debug_to_console($data) {
@@ -103,5 +104,12 @@ class EmployeeController extends Controller{
         $name = $request->input('name');
      	$address = $request->input('address');
         return "Nama : ".$name.", Alamat : ".$address;
+    }
+
+    public function print_pdf(){
+    	$employee = DB::table('employee')->get();
+ 
+    	$pdf = PDF::loadview('employee_pdf',['employee'=>$employee]);
+    	return $pdf->download('laporan-pegawai.pdf');
     }
 }
