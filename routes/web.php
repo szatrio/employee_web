@@ -89,3 +89,7 @@ Route::get('/errortest/{name}','ErrorController@index');
 
 Route::get('/send','EmailController@index');
 
+//action url
+Route::get('hello/{name}', 'HelloController@hello');
+Route::get('hello', 'HelloController@call');
+
